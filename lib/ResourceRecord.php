@@ -51,7 +51,7 @@ class ResourceRecord
      * @param int    $ttl
      * @param string $comment
      */
-    public static function create(string $name, RdataInterface $rdata, int $ttl = null, string $class = Classes::INTERNET, string $comment = null): ResourceRecord
+    public static function create(string $name, RdataInterface $rdata, ?int $ttl = null, string $class = Classes::INTERNET, ?string $comment = null): ResourceRecord
     {
         $rr = new self();
         $rr->setName($name);
