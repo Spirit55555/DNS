@@ -85,13 +85,16 @@ class TXT implements RdataInterface
             if ($string->is(Tokens::DOUBLE_QUOTES)) {
                 self::handleTxt($string, $txt);
                 $string->next();
-                $txt->append(' ');
+                $txt->append(Tokens::SPACE);
                 continue;
             }
 
             self::handleContiguousString($string, $txt);
             $string->next();
-            $txt->append(' ');
+
+            if ($string->valid()) {
+                $txt->append(Tokens::SPACE);
+            }
         }
 
         $this->setText((string) $txt, true);
